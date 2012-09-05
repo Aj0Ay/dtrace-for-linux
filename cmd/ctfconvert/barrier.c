@@ -87,7 +87,7 @@ void
 barrier_init(barrier_t *bar, int nthreads)
 {
 	pthread_mutex_init(&bar->bar_lock, NULL);
-	bar->bar_sem = sem_open("ctfmerge_barrier", O_CREAT | O_EXCL);
+	bar->bar_sem = sem_open("ctfmerge_barrier", O_CREAT | O_EXCL, S_IRUSR | S_IWUSR);
 
 	bar->bar_numin = 0;
 	bar->bar_nthr = nthreads;
